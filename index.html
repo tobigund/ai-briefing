@@ -160,6 +160,83 @@
   .src.indep{background:var(--brand-tint);color:var(--ink-strong)}
   .bench-note{margin:var(--space-3) 0 0;font-size:13px;color:var(--ink-muted)}
 
+  /* Leistung & Preis: Rangliste aus .bench-data (ab KW 44) */
+  .lb-board{display:flex;flex-direction:column;gap:var(--space-4);margin:0 0 var(--space-6)}
+  .lb-leaders{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-2)}
+  .lb-leader{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:2px;min-width:0;padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);background:var(--surface-warm);border:1px solid var(--border)}
+  .lb-leader:hover{border-color:var(--brand)}
+  .lb-leader:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .lb-leader small{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted)}
+  .lb-leader b{font-weight:500;font-size:15px;line-height:1.25;color:var(--ink-strong)}
+  .lb-leader span{font-family:var(--font-mono);font-size:13px;color:var(--ink-slate);font-variant-numeric:tabular-nums}
+  .lb-sort{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2)}
+  .lb-sort .lbl{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted);margin-right:var(--space-1)}
+  .lb-sort button{font:inherit;font-size:13px;line-height:1;cursor:pointer;padding:8px 13px;border-radius:var(--radius-pill);border:1px solid var(--border);background:var(--bg);color:var(--ink)}
+  .lb-sort button:hover{border-color:var(--brand);color:var(--brand)}
+  .lb-sort button[aria-pressed="true"]{background:var(--ink-strong);border-color:var(--ink-strong);color:var(--on-ink)}
+  .lb-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius-md)}
+  .lb{border-collapse:collapse;width:100%;font-size:14px;line-height:1.3;font-variant-numeric:tabular-nums}
+  .lb th{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-slate);background:var(--surface-warm);text-align:right;padding:var(--space-3) var(--space-2);vertical-align:bottom}
+  .lb th.c-model,.lb td.c-model{text-align:left}
+  .lb th.on{color:var(--ink-strong);box-shadow:inset 0 -2px 0 var(--brand)}
+  .lb td{padding:10px var(--space-2);border-top:1px solid var(--border);text-align:right;vertical-align:middle;color:var(--ink);white-space:nowrap}
+  .lb td.c-pos{font-family:var(--font-mono);font-size:13px;color:var(--ink-muted);text-align:center;width:2.2em;padding-left:var(--space-3)}
+  .lb td.c-model{white-space:normal;min-width:9.5em}
+  .lb tr{cursor:pointer}
+  .lb tbody tr:hover td{background:var(--surface-warm)}
+  .lb tr.sel td{background:var(--brand-tint)}
+  .lb tr.sel td.c-pos{color:var(--ink-strong)}
+  .lb-pick{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:1px;border-radius:4px}
+  .lb-pick:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+  .lb-pick b{font-weight:500;color:var(--ink-strong)}
+  .lb-pick small{font-size:12px;color:var(--ink-muted)}
+  .lb-v{display:block;font-size:15px;color:var(--ink-strong)}
+  .lb-p{display:block;font-family:var(--font-mono);font-size:11px;color:var(--ink-muted)}
+  .lb-p.top{display:inline-block;margin-top:2px;padding:2px 7px;border-radius:var(--radius-pill);background:var(--brand);color:var(--on-brand)}
+  .lb td.c-r.on{background:color-mix(in srgb,var(--surface-warm) 60%,transparent)}
+  .lb tr.sel td.c-r.on{background:var(--brand-tint)}
+  .lb-price{font-size:14px;color:var(--ink-strong)}
+  .lb td.c-price .lb-p{white-space:normal;max-width:11em;margin-left:auto}
+  .lb-hint{margin:0;font-size:13px;color:var(--ink-muted)}
+
+  .lb-detail{border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-6)}
+  .lb-dhead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:var(--space-2) var(--space-4)}
+  .lb-dhead h4{font-family:var(--font-display);font-weight:400;font-size:24px;line-height:1.15;letter-spacing:-.015em;color:var(--ink-strong);margin:0}
+  .lb-dhead h4 small{font-family:var(--font-sans);font-size:14px;color:var(--ink-muted);letter-spacing:0;margin-left:6px}
+  .lb-dprice{font-family:var(--font-mono);font-size:13px;color:var(--ink-slate);font-variant-numeric:tabular-nums}
+  .lb-dnote{margin:calc(var(--space-6) * -1 + var(--space-2)) 0 0;font-size:14px;color:var(--ink-muted)}
+  .lb-sec{display:flex;flex-direction:column;gap:var(--space-3)}
+  .lb-sec .lbl{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted)}
+  .lb-strip{display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
+  .lb-strips{display:flex;flex-direction:column;gap:var(--space-6)}
+  .lb-strip-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px var(--space-3);font-size:14px}
+  .lb-strip-head b{font-weight:500;color:var(--ink-strong)}
+  .lb-strip-head span{font-family:var(--font-mono);font-size:13px;color:var(--ink-slate);font-variant-numeric:tabular-nums}
+  .lb-strip svg,.lb-scatter svg{display:block;width:100%;height:auto;overflow:visible}
+  .lb-scatter{position:relative}
+  .lb-tip{position:absolute;pointer-events:none;z-index:2;background:var(--ink-strong);color:var(--on-ink);font-size:12px;line-height:1.35;padding:6px 9px;border-radius:var(--radius-sm);white-space:nowrap;transform:translate(-50%,calc(-100% - 10px))}
+  .lb-dot{cursor:pointer}
+  .lb-dot:focus{outline:none}
+  .lb-dot:focus-visible circle{stroke:var(--brand);stroke-width:3}
+  .lb svg text,.lb-detail svg text{font-family:var(--font-sans)}
+
+  .bench-sub{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-slate);margin:var(--space-8) 0 var(--space-2)}
+  .bench-news{list-style:none;margin:0;padding:0}
+  .bench-news li{padding:var(--space-3) 0;border-top:1px solid var(--border);font-size:15px}
+  .bench-news li:first-child{border-top:0;padding-top:0}
+  .bench-news b{font-weight:600;color:var(--ink-strong)}
+  .bench-more{margin-top:var(--space-6)}
+  .bench-more summary{cursor:pointer;font-size:14px;color:var(--brand);padding:var(--space-2) 0;border-radius:4px}
+  .bench-more summary:hover{color:var(--brand-hover)}
+  .bench-more[open] summary{margin-bottom:var(--space-3)}
+  @media (max-width:600px){
+    .lb .c-r:not(.on){display:none}
+    .lb-detail{padding:var(--space-4)}
+    .lb td.c-model{min-width:0}
+    .lb td.c-price .lb-p{display:none}
+    .lb-detail .lb-strips{gap:var(--space-4)}
+  }
+
   /* Kurz notiert */
   .brief ul{list-style:none;margin:0;padding:0}
   .brief li{padding:var(--space-3) 0;border-top:1px solid var(--border);font-size:15px;scroll-margin-top:var(--space-6);border-radius:2px;transition:background-color .6s}
@@ -265,9 +342,19 @@
     04 Open Source &amp; kleinere Labs · 05 Regeln &amp; Risiken · 06 Kurz notiert
   Rubriken 01, 02, 04, 05: <article>-Blöcke wie bisher (kicker, h2, field "Was passiert ist", why field, sources);
   ohne Inhalt: <p class="rubric-empty">Diese Woche nichts Relevantes.</p>
-  Rubrik 03: <section class="bench"> mit <p class="bench-intro">, <div class="table-wrap"><table class="bench-table">
-  (Spalten: Modell / Harness · Anbieter · Benchmark · Ergebnis · Preis je 1 Mio. Tokens (Input / Output) · Quelle)
-  und Quellen-Badge <span class="src self">Hersteller</span> oder <span class="src indep">unabhängig</span>, dazu <p class="bench-note">.
+  Rubrik 03 (ab KW 44): <section class="bench"> mit
+    <p class="bench-intro"> (2 Sätze: wer führt welches Rating, auffällige Preise),
+    <script type="application/json" class="bench-data">{ "stand":"JJJJ-MM-TT",
+      "ratings":[{"id":"aa","name":"…","short":"…","unit":"" oder "%","of":<Anzahl Modelle der Originalliste>,"stand":"JJJJ-MM-TT","url":"…"}, …],
+      "models":[{"name":"…","variant":"High|Max|…","provider":"…","open":true|false,"in":<$ je 1 Mio. Eingabe>,"out":<$ je 1 Mio. Ausgabe>,
+                 "priceNote":"optional","priceUrl":"…","note":"optional, 1 Satz",
+                 "scores":{"aa":{"value":59,"rank":1},"vals":{"value":70.36,"rank":2},"tb":{"value":65.2,"rank":2}}}, …]}</script>
+    Daraus entstehen Spitzenreiter-Kacheln, sortierbare Rangliste und Detailansicht automatisch. Fehlender Wert: Schlüssel weglassen, nie schätzen.
+    "rank" = Platz in der Originalliste (bei Artificial Analysis beste Denkstufe je Modell). Keine eigenen Gesamtwerte.
+    Danach <h4 class="bench-sub">Neu in dieser Woche</h4><ul class="bench-news"><li><b>Stichwort:</b> 1–2 Sätze. Badge
+    <span class="src indep">unabhängig</span> oder <span class="src self">Hersteller</span> + <a href="…">Quelle</a></li></ul>,
+    optional <details class="bench-more"><summary>Alle Einzelwerte der Woche als Tabelle</summary><div class="table-wrap"><table class="bench-table">…</table></div></details>,
+    zuletzt <p class="bench-note"> (Methodik, Prüfdatum der Preise). KW 43 und älter: nur Tabelle (altes Format).
   Rubrik 06: <section class="brief"><ul><li><span class="when">TT. Mon.</span> <b>Schlagzeile</b> Ein Satz. <a href="…">Quelle</a></li></ul></section>
   Zuletzt <div class="foot">. Ältere Ausgaben (bis KW 43) haben noch keine Rubriken.
   Zeitstrahl, Themenleiste, Suche und Blättern entstehen automatisch. CSS und Skript nicht ändern.
@@ -398,7 +485,52 @@
 <div class="rubric"><span class="num">03</span><h3>Leistung &amp; Preis</h3></div>
 
 <section class="bench">
-  <p class="bench-intro">Diese Woche brachte einen neuen Spitzenwert auf dem Intelligence Index von Artificial Analysis und drei neue Preislisten. Auffällig ist vor allem die Spanne: Zwischen dem günstigsten und dem teuersten hier gelisteten Modell liegt beim Ausgabepreis ein Faktor von mehr als 35.</p>
+  <p class="bench-intro">Drei unabhängige Ratings, drei verschiedene Spitzenreiter: Gemini 4 Carbon führt den Intelligence Index von Artificial Analysis an, Claude Sonnet 5.5 den Vals Index und Kimi K3.1 Pro den Terminal-Bench-Test. Beim Ausgabepreis liegt zwischen dem günstigsten und dem teuersten Modell der Rangliste ein Faktor von mehr als 40.</p>
+  <script type="application/json" class="bench-data">
+{
+  "stand": "2026-11-01",
+  "ratings": [
+    {"id": "aa", "name": "Artificial Analysis Intelligence Index", "short": "AA Index", "unit": "", "of": 42, "stand": "2026-11-01", "url": "https://artificialanalysis.ai/leaderboards/models"},
+    {"id": "vals", "name": "Vals Index", "short": "Vals Index", "unit": "%", "of": 32, "stand": "2026-10-29", "url": "https://www.vals.ai/benchmarks/vals_index"},
+    {"id": "tb", "name": "Terminal-Bench 4.0 (Messung von Artificial Analysis)", "short": "Terminal-Bench", "unit": "%", "of": 42, "stand": "2026-11-01", "url": "https://artificialanalysis.ai/leaderboards/models"}
+  ],
+  "models": [
+    {"name": "Gemini 4 Carbon", "variant": "High", "provider": "Google", "in": 4, "out": 20, "priceNote": "Einführungspreis 2 $ / 10 $", "priceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/", "note": "Bislang nur für ausgewählte Sicherheitsteams zugänglich.",
+     "scores": {"aa": {"value": 59, "rank": 1}, "vals": {"value": 70.36, "rank": 2}, "tb": {"value": 65.2, "rank": 2}}},
+    {"name": "Claude Opus 5.5", "variant": "Max", "provider": "Anthropic", "in": 4, "out": 20, "priceUrl": "https://claude.com/pricing",
+     "scores": {"aa": {"value": 58, "rank": 2}, "vals": {"value": 70.18, "rank": 3}, "tb": {"value": 59.6, "rank": 4}}},
+    {"name": "GPT-6 Astra", "variant": "Max", "provider": "OpenAI", "in": 10, "out": 50, "priceUrl": "https://developers.openai.com/api/docs/pricing",
+     "scores": {"aa": {"value": 57, "rank": 3}, "vals": {"value": 65.02, "rank": 6}, "tb": {"value": 59.6, "rank": 4}}},
+    {"name": "GPT-6.1 Sol", "variant": "Max", "provider": "OpenAI", "in": 2, "out": 10, "priceUrl": "https://artificialanalysis.ai/models/gpt-6-1-sol",
+     "scores": {"aa": {"value": 55, "rank": 4}, "vals": {"value": 63.94, "rank": 8}, "tb": {"value": 56.1, "rank": 8}}},
+    {"name": "Claude Sonnet 5.5", "variant": "Max", "provider": "Anthropic", "in": 2, "out": 10, "priceUrl": "https://claude.com/pricing",
+     "scores": {"aa": {"value": 54, "rank": 5}, "vals": {"value": 70.85, "rank": 1}, "tb": {"value": 63.6, "rank": 3}}},
+    {"name": "GPT-6.1 Terra", "variant": "Max", "provider": "OpenAI", "in": 1, "out": 5, "priceUrl": "https://artificialanalysis.ai/models/gpt-6-1-terra", "note": "Neu diese Woche; 138 Sekunden bis zum ersten Wort.",
+     "scores": {"aa": {"value": 51, "rank": 6}, "vals": {"value": 60.47, "rank": 11}, "tb": {"value": 55.6, "rank": 9}}},
+    {"name": "Gemini 4 Argon", "variant": "High", "provider": "Google", "in": 4, "out": 20, "priceUrl": "https://artificialanalysis.ai/models/gemini-4-argon",
+     "scores": {"aa": {"value": 50, "rank": 7}, "vals": {"value": 69.24, "rank": 4}, "tb": {"value": 57.1, "rank": 6}}},
+    {"name": "Kimi K3.1 Pro", "variant": "", "provider": "Moonshot", "open": true, "in": 2, "out": 10, "priceUrl": "https://artificialanalysis.ai/models/kimi-k3-1-pro", "note": "Offene Gewichte.",
+     "scores": {"aa": {"value": 46, "rank": 10}, "vals": {"value": 62.52, "rank": 9}, "tb": {"value": 67.2, "rank": 1}}},
+    {"name": "DeepSeek V4.1 Flash 1017", "variant": "Max", "provider": "DeepSeek", "open": true, "in": 0.3, "out": 1.2, "priceUrl": "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017", "note": "Offene Gewichte.",
+     "scores": {"aa": {"value": 32, "rank": 15}, "vals": {"value": 61.26, "rank": 10}, "tb": {"value": 33.8, "rank": 15}}},
+    {"name": "Mistral Large 4", "variant": "High", "provider": "Mistral", "open": true, "in": 0.7, "out": 2.1, "priceUrl": "https://artificialanalysis.ai/models/mistral-large-4", "note": "Offene Gewichte.",
+     "scores": {"aa": {"value": 26, "rank": 25}, "vals": {"value": 56.42, "rank": 17}, "tb": {"value": 24.7, "rank": 22}}}
+  ]
+}
+  </script>
+
+  <h4 class="bench-sub">Neu in dieser Woche</h4>
+  <ul class="bench-news">
+    <li><b>Neuer Spitzenwert:</b> Gemini 4 Carbon übernimmt mit 59 Punkten Platz eins im Intelligence Index von Artificial Analysis, kaufen kann man es aber noch nicht. Googles eigene Cyber-Werte (SEC-bench Pro 88,2 %, ExploitGym 54,8 %, CWE-bench 71,0 %) sind nicht unabhängig geprüft. <span class="src indep">unabhängig</span> <a href="https://artificialanalysis.ai/models/gemini-4-carbon">Artificial Analysis</a> <span class="src self">Hersteller</span> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/">Google</a></li>
+    <li><b>Neuer Preis:</b> GPT-6.1 Terra kostet 1 $ / 5 $ je Million Tokens, halb so viel wie GPT-6.1 Sol, und erreicht 51 Punkte bei rund 0,96 $ je Index-Aufgabe. OpenAI selbst nennt 50,3 % auf Terminal-Bench 4.0. <span class="src indep">unabhängig</span> <a href="https://artificialanalysis.ai/models/gpt-6-1-terra">Artificial Analysis</a> <span class="src self">Hersteller</span> <a href="https://aiweekly.co/alerts/openai-ships-gpt-61-terra-at-15-per-million-half-of-sol">AI Weekly (nach OpenAI)</a></li>
+    <li><b>Teuerstes Modell der Woche:</b> GPT-Rosalind-6 steht mit 15 $ / 75 $ auf OpenAIs Preisliste, erhältlich nur nach Zugangsprüfung. Es ist in keinem der drei Ratings gelistet. <span class="src self">Hersteller</span> <a href="https://developers.openai.com/api/docs/pricing">OpenAI</a></li>
+    <li><b>Harness statt Modell:</b> GitHub gibt für Copilot Fusion Max 60 Punkte im Coding Agent Index an, zwei Punkte hinter Claude Code mit Opus 5.5 (max), bei etwa halben Kosten je Aufgabe. <span class="src self">Hersteller</span> <a href="https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/">GitHub</a></li>
+    <li><b>Preisänderung für Behörden:</b> Anthropic gibt US-Behörden 40 % Rabatt auf Claude Enterprise, Claude for Government und die API, ohne Mindestabnahme. Für alle anderen gilt der Listenpreis. <span class="src self">Hersteller</span> <a href="https://www.anthropic.com/news/expanding-partnership-gsa">Anthropic</a></li>
+    <li><b>Bildbearbeitung:</b> Microsofts MAI-Image-2.7 Preview kommt im Bildbearbeitungs-Vergleich von Artificial Analysis auf 1193 Elo, knapp hinter GPT Image 2.5 Sunburst mit 1199; die Vertrauensbereiche überlappen. Einen Preis gibt es noch nicht. <span class="src indep">unabhängig</span> <a href="https://winbuzzer.com/2026/10/28/microsofts-image-editor-nears-openai-in-preference-tests-xcxwbn">über Winbuzzer gelesen</a></li>
+  </ul>
+
+  <details class="bench-more">
+    <summary>Alle Einzelwerte der Woche als Tabelle</summary>
   <div class="table-wrap"><table class="bench-table">
     <thead><tr><th>Modell / Harness</th><th>Anbieter</th><th>Benchmark</th><th>Ergebnis</th><th>Preis je 1 Mio. Tokens</th><th>Quelle</th></tr></thead>
     <tbody>
@@ -418,7 +550,8 @@
       <tr><td>MAI-Image-2.7 Preview</td><td>Microsoft</td><td>AA-Image-Editing v2.1 (Bildbearbeitung)</td><td class="num-cell">1193 Elo<br><small>GPT Image 2.5 Sunburst: 1199; Vertrauensbereiche überlappen</small></td><td class="num-cell">–<br><small>nicht angekündigt</small></td><td><span class="src indep">unabhängig</span> <a href="https://winbuzzer.com/2026/10/28/microsofts-image-editor-nears-openai-in-preference-tests-xcxwbn">über Winbuzzer gelesen</a></td></tr>
     </tbody>
   </table></div>
-  <p class="bench-note">Zur Vergleichbarkeit: Die Werte stammen aus unterschiedlichen Tests und sind untereinander nicht austauschbar. Artificial Analysis und Vals AI bilden beide einen Index, verwenden aber andere Aufgaben und Gewichtungen — Kimi K3.1 Pro liegt bei einem Dienst auf Platz drei einer Teildisziplin und beim anderen außerhalb der Spitzengruppe. Herstellerangaben entstehen unter selbst gewählten Bedingungen und sind entsprechend markiert. Zu Agenten-Werkzeugen lag diese Woche nur GitHubs eigener Vergleich mit Claude Code vor; LMArena und die Ranglisten von SWE-bench und Terminal-Bench brachten keine neuen eigenen Ergebnisse. Preise für GPT-Rosalind-6, GPT-6 Astra, Claude Opus 5.5 und Claude Sonnet 5.5 am 01.11.2026 auf den Preisseiten der Hersteller geprüft.</p>
+  </details>
+  <p class="bench-note">Zur Einordnung: Die drei Ratings messen Verschiedenes und werden hier nicht zu einem eigenen Gesamtwert verrechnet. Artificial Analysis bildet einen Index aus mehreren Tests, Vals AI gewichtet agentische Aufgaben aus Finanzen, Programmierung, Recht und Steuern nach ihrem Anteil an der US-Wirtschaftsleistung, Terminal-Bench 4.0 prüft Aufgaben auf der Kommandozeile (hier in der Messung von Artificial Analysis, mit einheitlichem Testaufbau). Artificial Analysis führt jede Denkstufe eines Modells als eigenen Eintrag; in dieser Rangliste zählt die jeweils stärkste Stufe, und die Plätze beziehen sich auf 42 Modelle. Deshalb steht GPT-6.1 Terra hier auf Platz 6, in der Originalliste mit allen Stufen auf Platz 12. Preise je 1 Mio. Tokens am 01.11.2026 auf den Preisseiten der Hersteller bzw. bei Artificial Analysis geprüft; für Gemini 4 Carbon gilt vorerst ein Einführungspreis von 2 $ / 10 $. Herstellerangaben entstehen unter selbst gewählten Bedingungen und sind entsprechend markiert.</p>
 </section>
 
 <div class="rubric"><span class="num">04</span><h3>Open Source &amp; kleinere Labs</h3></div>
@@ -1884,6 +2017,175 @@
   window.addEventListener('hashchange',function(){var id=location.hash.slice(1);eds.forEach(function(e){if(e.id===id&&e!==current){clearSearch();show(e,false)}})});
 })();
 </script>
+<script>
+/* Rubrik 03: rendert jede <script type="application/json" class="bench-data"> als Rangliste mit Detailansicht. */
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  var narrow=window.matchMedia?window.matchMedia('(max-width:600px)'):{matches:false};
+  function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
+  function sv(tag,attrs){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);return e}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function num(v,d){return v==null?'–':Number(v).toLocaleString('de-DE',{minimumFractionDigits:d||0,maximumFractionDigits:d==null?2:d})}
+  function money(v){if(v==null)return '–';return (v%1?num(v,2):num(v))+' $'}
+  function fmt(r,v){if(v==null)return '–';var dec=(String(v).split('.')[1]||'').length;return num(v,dec)+(r.unit==='%'?' %':'')}
+  function dateDE(s){if(!s)return '';var p=s.split('-');return p[2]+'.'+p[1]+'.'+p[0]}
 
-</body></html>
+  [].forEach.call(document.querySelectorAll('script.bench-data'),function(node){
+    var data; try{data=JSON.parse(node.textContent)}catch(e){return}
+    var R=data.ratings||[], M=data.models||[];
+    if(!R.length||!M.length) return;
+    M.forEach(function(m,i){m._i=i});
+    var sortKey=R[0].id, sel=M[0];
+    M.forEach(function(m){var s=m.scores&&m.scores[sortKey], b=sel.scores&&sel.scores[sortKey];if(s&&s.rank!=null&&(!b||b.rank==null||s.rank<b.rank))sel=m});
+    var board=el('div','lb-board');
+    node.parentNode.insertBefore(board,node.nextSibling);
+
+    function sc(m,id){return m.scores&&m.scores[id]||null}
+    function val(m,id){var s=sc(m,id);return s&&s.value!=null?s.value:null}
+    function sorted(){
+      return M.slice().sort(function(a,b){
+        if(sortKey==='price'){var pa=a.out==null?1e9:a.out,pb=b.out==null?1e9:b.out;return pa-pb||(a.in||0)-(b.in||0)}
+        var va=val(a,sortKey),vb=val(b,sortKey);
+        if(va==null&&vb==null) return a._i-b._i; if(va==null) return 1; if(vb==null) return -1;
+        return vb-va||a._i-b._i;
+      });
+    }
+
+    // Spitzenreiter je Rating + günstigstes Modell
+    var leaders=el('div','lb-leaders');
+    R.forEach(function(r){
+      var best=null;M.forEach(function(m){var s=sc(m,r.id);if(s&&s.rank!=null&&(!best||s.rank<sc(best,r.id).rank))best=m});
+      if(!best) return;
+      var b=el('button','lb-leader','<small>Platz 1 · '+esc(r.short)+'</small><b>'+esc(best.name)+'</b><span>'+fmt(r,val(best,r.id))+'</span>');
+      b.type='button'; b.addEventListener('click',function(){sortKey=r.id;select(best,true)}); leaders.appendChild(b);
+    });
+    var cheap=M.filter(function(m){return m.out!=null}).sort(function(a,b){return a.out-b.out})[0];
+    if(cheap){var cb=el('button','lb-leader','<small>Günstigstes hier</small><b>'+esc(cheap.name)+'</b><span>'+money(cheap.in)+' / '+money(cheap.out)+'</span>');cb.type='button';cb.addEventListener('click',function(){sortKey='price';select(cheap,true)});leaders.appendChild(cb)}
+    board.appendChild(leaders);
+
+    // Sortierung
+    var sortBar=el('div','lb-sort'); sortBar.setAttribute('role','group'); sortBar.setAttribute('aria-label','Rangliste sortieren nach');
+    sortBar.appendChild(el('span','lbl','Sortieren nach'));
+    var sortBtns={};
+    R.map(function(r){return [r.id,r.short]}).concat([['price','Preis']]).forEach(function(o){
+      var b=el('button',null,esc(o[1]));b.type='button';b.addEventListener('click',function(){sortKey=o[0];render()});sortBtns[o[0]]=b;sortBar.appendChild(b);
+    });
+    board.appendChild(sortBar);
+
+    var wrap=el('div','lb-wrap'), table=el('table','lb'); wrap.appendChild(table); board.appendChild(wrap);
+    board.appendChild(el('p','lb-hint','Platz = Rang in der vollständigen Rangliste des jeweiligen Dienstes. Preise in US-Dollar je 1 Mio. Tokens (Eingabe / Ausgabe). Ein Klick auf ein Modell zeigt unten, wo es in jedem Rating steht.'));
+    var detail=el('div','lb-detail'); detail.setAttribute('aria-live','polite'); board.appendChild(detail);
+
+    function select(m,scroll){sel=m;render();if(scroll){var y=detail.getBoundingClientRect().top;if(y>window.innerHeight-120||y<0)detail.scrollIntoView({block:'nearest',behavior:'smooth'})}}
+
+    function render(){
+      for(var k in sortBtns) sortBtns[k].setAttribute('aria-pressed',k===sortKey?'true':'false');
+      var mob=sortKey==='price'?R[0].id:sortKey;
+      var h='<caption class="sr-only" style="position:absolute;left:-9999px">Rangliste Leistung und Preis</caption><thead><tr><th scope="col" style="text-align:center">#</th><th scope="col" class="c-model">Modell</th>';
+      R.forEach(function(r){h+='<th scope="col" class="c-r'+(r.id===mob?' on':'')+'" title="'+esc(r.name)+'">'+esc(r.short)+(r.of?'<br><span style="text-transform:none;letter-spacing:0;color:var(--ink-muted)">von '+r.of+'</span>':'')+'</th>'});
+      h+='<th scope="col" class="c-price'+(sortKey==='price'?' on':'')+'">Preis $<br><span style="text-transform:none;letter-spacing:0;color:var(--ink-muted)">Ein / Aus</span></th></tr></thead><tbody>';
+      sorted().forEach(function(m,i){
+        h+='<tr data-i="'+m._i+'"'+(m===sel?' class="sel"':'')+'><td class="c-pos">'+(i+1)+'</td><td class="c-model"><button type="button" class="lb-pick" aria-pressed="'+(m===sel)+'"><b>'+esc(m.name)+'</b><small>'+esc(m.provider)+(m.variant?' · '+esc(m.variant):'')+'</small></button></td>';
+        R.forEach(function(r){var s=sc(m,r.id);
+          h+='<td class="c-r'+(r.id===mob?' on':'')+'"><span class="lb-v">'+fmt(r,s&&s.value)+'</span>'+(s&&s.rank!=null?'<span class="lb-p'+(s.rank===1?' top':'')+'">Platz '+s.rank+'</span>':'')+'</td>'});
+        h+='<td class="c-price'+(sortKey==='price'?' on':'')+'"><span class="lb-price">'+money(m.in)+' / '+money(m.out)+'</span>'+(m.priceNote?'<span class="lb-p">'+esc(m.priceNote)+'</span>':'')+'</td></tr>';
+      });
+      table.innerHTML=h+'</tbody>';
+      [].forEach.call(table.querySelectorAll('tbody tr'),function(tr){tr.addEventListener('click',function(){select(M[+tr.dataset.i],true)})});
+      renderDetail();
+    }
+
+    function renderDetail(){
+      var m=sel, d='';
+      d+='<div class="lb-dhead"><h4>'+esc(m.name)+'<small>'+esc(m.provider)+(m.variant?' · '+esc(m.variant):'')+'</small></h4><span class="lb-dprice">'+money(m.in)+' / '+money(m.out)+' je 1 Mio. Tokens</span></div>';
+      if(m.note||m.priceNote) d+='<p class="lb-dnote">'+esc([m.note,m.priceNote].filter(Boolean).join(' '))+'</p>';
+      detail.innerHTML=d;
+      // Platz je Rating
+      var sec=el('div','lb-sec lb-strips'); sec.appendChild(el('span','lbl','Wo das Modell in jedem Rating steht'));
+      R.forEach(function(r){sec.appendChild(strip(r.name,r.id,function(x){return val(x,r.id)},function(v){return fmt(r,v)},sc(m,r.id)?('Platz '+(sc(m,r.id).rank!=null?sc(m,r.id).rank:'–')+(r.of?' von '+r.of:'')+' · '+fmt(r,val(m,r.id))):'nicht gelistet',false,r))});
+      var pr=M.filter(function(x){return x.out!=null}), pi=pr.filter(function(x){return x.out<m.out}).length;
+      sec.appendChild(strip('Ausgabepreis je 1 Mio. Tokens','out',function(x){return x.out},money,m.out!=null?(money(m.out)+' · Rang '+(pi+1)+' von '+pr.length+' hier, günstigstes zuerst'):'kein Preis',true));
+      detail.appendChild(sec);
+      // Leistung gegen Preis
+      var rid=sortKey==='price'?R[0].id:sortKey, r=R.filter(function(x){return x.id===rid})[0];
+      var sc2=el('div','lb-sec'); sc2.appendChild(el('span','lbl',esc(r.short)+' gegen Ausgabepreis'));
+      sc2.appendChild(scatter(r)); detail.appendChild(sc2);
+      var src=el('p','lb-hint');
+      src.innerHTML='Quellen: '+R.map(function(x){return '<a href="'+esc(x.url)+'">'+esc(x.name.replace(/\s*\(.*\)$/,''))+'</a> (Stand '+dateDE(x.stand)+')'}).join(', ')+(m.priceUrl?'; Preis: <a href="'+esc(m.priceUrl)+'">Quelle</a>':'')+'.';
+      detail.appendChild(src);
+    }
+
+    function scaleFor(vals,log){
+      var lo=Math.min.apply(null,vals),hi=Math.max.apply(null,vals);
+      if(log){lo=Math.log10(lo);hi=Math.log10(hi)}
+      var pad=(hi-lo)*.06||1; lo-=pad; hi+=pad;
+      return function(v){var x=log?Math.log10(v):v;return (x-lo)/(hi-lo)};
+    }
+
+    function strip(title,key,get,f,label,log,r){
+      var box=el('div','lb-strip');
+      box.appendChild(el('div','lb-strip-head','<b>'+esc(title)+'</b><span>'+esc(label)+'</span>'));
+      var W=narrow.matches?340:640,H=30,P=10;
+      var vals=M.map(get).filter(function(v){return v!=null});
+      var svg=sv('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':title+': '+label});
+      svg.appendChild(sv('line',{x1:P,x2:W-P,y1:H/2,y2:H/2,stroke:'var(--border)','stroke-width':2,'stroke-linecap':'round'}));
+      if(vals.length){
+        var s=scaleFor(vals,log);
+        M.forEach(function(x){var v=get(x);if(v==null||x===sel)return;
+          var c=sv('circle',{cx:P+s(v)*(W-2*P),cy:H/2,r:5,fill:'var(--bar-idle)',stroke:'var(--bg)','stroke-width':2});
+          var t=sv('title',{});t.textContent=x.name+': '+f(v);c.appendChild(t);svg.appendChild(c)});
+        var v=get(sel);
+        if(v!=null) svg.appendChild(sv('circle',{cx:P+s(v)*(W-2*P),cy:H/2,r:8,fill:'var(--brand)',stroke:'var(--bg)','stroke-width':2}));
+        var ends=el('div','lb-strip-head','<span>'+(log?'günstiger':'niedriger')+' · '+f(Math.min.apply(null,vals))+'</span><span>'+f(Math.max.apply(null,vals))+' · '+(log?'teurer':'höher')+'</span>');
+        ends.style.fontSize='12px';
+        box.appendChild(svg); box.appendChild(ends);
+      }
+      return box;
+    }
+
+    function scatter(r){
+      var box=el('div','lb-scatter');
+      var small=narrow.matches, W=small?340:640, H=small?260:300, L=small?34:40, Rr=14, T=14, B=34;
+      var pts=M.filter(function(x){return x.out!=null&&val(x,r.id)!=null});
+      var svg=sv('svg',{viewBox:'0 0 '+W+' '+H,role:'group','aria-label':r.short+' gegen Ausgabepreis'});
+      if(!pts.length){box.appendChild(el('p','lb-hint','Keine Werte.'));return box}
+      var ys=pts.map(function(x){return val(x,r.id)}), xs=pts.map(function(x){return x.out});
+      var y0=Math.floor(Math.min.apply(null,ys)/10)*10, y1=Math.ceil(Math.max.apply(null,ys)/10)*10; if(y1===y0)y1+=10;
+      var xt=[0.1,0.3,1,3,10,30,100].filter(function(t){return t>=Math.min.apply(null,xs)/1.6&&t<=Math.max.apply(null,xs)*1.6});
+      var xl=Math.log10(Math.min(xt[0],Math.min.apply(null,xs))), xh=Math.log10(Math.max(xt[xt.length-1],Math.max.apply(null,xs)));
+      function X(v){return L+(Math.log10(v)-xl)/(xh-xl)*(W-L-Rr)}
+      function Y(v){return T+(1-(v-y0)/(y1-y0))*(H-T-B)}
+      var g=sv('g',{});svg.appendChild(g);
+      for(var t=y0;t<=y1;t+=(y1-y0>40?20:10)){
+        g.appendChild(sv('line',{x1:L,x2:W-Rr,y1:Y(t),y2:Y(t),stroke:'var(--border)','stroke-width':1}));
+        var tx=sv('text',{x:L-8,y:Y(t)+4,'text-anchor':'end','font-size':12,fill:'var(--ink-muted)'});tx.textContent=num(t)+(r.unit==='%'?' %':'');g.appendChild(tx);
+      }
+      xt.forEach(function(t){var tx=sv('text',{x:X(t),y:H-B+18,'text-anchor':'middle','font-size':12,fill:'var(--ink-muted)'});tx.textContent=money(t);g.appendChild(tx)});
+      var ax=sv('text',{x:W-Rr,y:H-4,'text-anchor':'end','font-size':11,fill:'var(--ink-muted)'});ax.textContent='Ausgabepreis je 1 Mio. Tokens (log) →';g.appendChild(ax);
+      var tip=el('div','lb-tip');tip.hidden=true;
+      var order=pts.filter(function(x){return x!==sel}).concat(pts.indexOf(sel)>-1?[sel]:[]);
+      order.forEach(function(x){
+        var on=x===sel, a=sv('g',{'class':'lb-dot',tabindex:0,role:'button','aria-label':x.name+': '+fmt(r,val(x,r.id))+', '+money(x.in)+' / '+money(x.out),'aria-pressed':on?'true':'false'});
+        var cx=X(x.out), cy=Y(val(x,r.id));
+        a.appendChild(sv('circle',{cx:cx,cy:cy,r:16,fill:'transparent'}));
+        a.appendChild(sv('circle',{cx:cx,cy:cy,r:on?8:5.5,fill:on?'var(--brand)':'var(--bar-idle)',stroke:'var(--bg)','stroke-width':2}));
+        if(on){var lb=sv('text',{x:cx+(cx>W*.6?-12:12),y:cy+4,'text-anchor':cx>W*.6?'end':'start','font-size':13,'font-weight':500,fill:'var(--ink-strong)'});lb.textContent=x.name;a.appendChild(lb)}
+        function showTip(){tip.innerHTML=esc(x.name)+'<br>'+esc(r.short)+' '+fmt(r,val(x,r.id))+' · '+money(x.in)+' / '+money(x.out);tip.style.left=(cx/W*100)+'%';tip.style.top=(cy/H*100)+'%';tip.hidden=false}
+        a.addEventListener('mouseenter',showTip);a.addEventListener('focus',showTip);
+        a.addEventListener('mouseleave',function(){tip.hidden=true});a.addEventListener('blur',function(){tip.hidden=true});
+        a.addEventListener('click',function(){select(x,false)});
+        a.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();select(x,false);var n=box.parentNode&&detail.querySelector('.lb-dot[aria-pressed="true"]');if(n)n.focus()}});
+        svg.appendChild(a);
+      });
+      box.appendChild(svg);box.appendChild(tip);
+      box.appendChild(el('p','lb-hint','Oben links = stark und günstig. Jeder Punkt ist ein Modell der Rangliste.'));
+      return box;
+    }
+
+    render();
+    if(narrow.addEventListener) narrow.addEventListener('change',renderDetail);
+  });
+})();
+</script>
+
 </body></html>
